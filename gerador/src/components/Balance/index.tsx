@@ -1,5 +1,6 @@
 import React from "react";
 import { View, Text, StyleSheet } from "react-native";
+import { MotiView } from "moti/build";
 
 interface SaldoEgastosProps {
   saldo: string;
@@ -8,7 +9,22 @@ interface SaldoEgastosProps {
 
 export default function Balance({ saldo, gastos }: SaldoEgastosProps) {
   return (
-    <View style={styles.container}>
+    <MotiView 
+    style={styles.container}
+    from={{
+      rotateX: '-100deg',
+      opacity: 0,
+    }}
+    animate={{
+      rotateX: '0deg',
+      opacity: 1,
+    }}
+    transition={{
+      type: 'timing',
+      delay: 300,
+      duration: 900,
+    }}
+    >
 
       <View>
         <Text style={styles.itemTitle}>Saldo</Text>
@@ -26,7 +42,7 @@ export default function Balance({ saldo, gastos }: SaldoEgastosProps) {
 
           </View>
         </View>
-      </View>
+      </MotiView>
     
   );
 }

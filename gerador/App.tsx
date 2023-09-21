@@ -5,6 +5,8 @@ import Header from './src/components/Header/Index';
 import Balance from './src/components/Balance';
 import Moviments from './src/components/Moviments';
 import Actions from './src/components/Actions';
+import 'react-native-reanimated';
+
 
 const list =[
   {

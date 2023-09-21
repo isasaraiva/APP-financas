@@ -9,6 +9,7 @@ import {
 } from "react-native";
 import { Feather } from "@expo/vector-icons";
 import { LinearGradient } from "expo-linear-gradient";
+import { MotiView } from "moti";
 
 const statusbarHeight = StatusBar.currentHeight
   ? StatusBar.currentHeight + 22
@@ -32,7 +33,22 @@ export default function Header({ name }) {
         end={{ x: 1.5, y: 0.1 }}
         locations={[0.1, 0.35, 0.8]}
       >
-        <View style={styles.content}>
+        <MotiView
+         style={styles.content}
+         from={{
+            translateY: 150,
+            opacity:0,
+         }}
+         animate={{
+            translateY: 0,
+            opacity:1,
+         }}
+         transition={{
+            type: "timing",
+            duration: 800,
+            delay: 300,
+         }}
+         >
           <Text style={styles.username}>{name}</Text>
 
           <TouchableOpacity
@@ -42,7 +58,7 @@ export default function Header({ name }) {
           >
             <Feather name="user" size={20} color="white" />
           </TouchableOpacity>
-        </View>
+        </MotiView>
       </LinearGradient>
     </>
   );
